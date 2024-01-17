@@ -80,32 +80,36 @@ class HomePage {
     const headerLinks = this.getHeaderLinks();
     headerLinks[1].click();
 
-    // Esperar a que el modal de contacto esté abierto
     cy.get("#exampleModal").should("have.class", "show").wait(1000); // Ajusta el tiempo de espera según sea necesario
+
+    cy.get("#exampleModal .close").click();
   }
 
   exploreAboutUsLink() {
     const headerLinks = this.getHeaderLinks();
     headerLinks[2].click();
 
-    // Esperar a que el modal de About Us esté abierto
     cy.get("#videoModal").should("have.class", "show").wait(1000); // Ajusta el tiempo de espera según sea necesario
+
+    cy.get("#videoModal .close").click();
   }
 
   exploreLoginLink() {
     const headerLinks = this.getHeaderLinks();
     headerLinks[4].click();
 
-    // Esperar a que el modal de inicio de sesión esté abierto
     cy.get("#logInModal").should("have.class", "show").wait(1000); // Ajusta el tiempo de espera según sea necesario
+
+    cy.get("#logInModal .close").click();
   }
 
   exploreSignupLink() {
     const headerLinks = this.getHeaderLinks();
     headerLinks[5].click();
 
-    // Esperar a que el modal de registro esté abierto
     cy.get("#signInModal").should("have.class", "show").wait(1000); // Ajusta el tiempo de espera según sea necesario
+
+    cy.get("#signInModal .close").click();
   }
 
   //Header links end
