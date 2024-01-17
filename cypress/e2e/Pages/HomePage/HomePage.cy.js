@@ -153,7 +153,6 @@ class HomePage {
     cy.wait(1000);
     cy.get(".col-lg-4").should("be.visible");
   }
-
   // Categories end
 }
 
