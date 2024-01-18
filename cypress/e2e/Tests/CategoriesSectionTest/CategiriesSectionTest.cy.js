@@ -1,32 +1,32 @@
 // categoriesSelectionSteps.js
 
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
-const homePage = require("../../Pages/HomePage/HomePage.cy.js");
+const homePageCategories = require("../../Pages/HomePage/HomePageCategories");
 
 Given("I am on the website's homepage", () => {
   cy.visit("/");
 });
 
 When("I select the 'Phone' category", () => {
-  homePage.selectPhoneCategory();
+  homePageCategories.selectPhoneCategory();
 });
 
 When("I select the 'Laptops' category", () => {
-  homePage.selectLaptopsCategory();
+  homePageCategories.selectLaptopsCategory();
 });
 
 When("I select the 'Monitors' category", () => {
-  homePage.selectMonitorsCategory();
+  homePageCategories.selectMonitorsCategory();
 });
 
 Then("I should see products related to phones", () => {
-  homePage.verifyProductsRelatedTo();
+  homePageCategories.verifyProductsRelatedTo();
 });
 
 Then("I should see products related to laptops", () => {
-  homePage.verifyProductsRelatedTo();
+  homePageCategories.verifyProductsRelatedTo();
 });
 
 Then("I should see products related to monitors", () => {
-  homePage.verifyProductsRelatedTo();
+  homePageCategories.verifyProductsRelatedTo();
 });

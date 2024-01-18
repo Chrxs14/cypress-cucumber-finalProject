@@ -1,7 +1,7 @@
 // headerNavigationSteps.js
 
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
-const homePage = require("../../Pages/HomePage/HomePage.cy.js");
+const homePageNavBar = require("../../Pages/HomePage/HomePage.NavBar");
 
 Given("I am on the homepage", () => {
   cy.visit("/");
@@ -9,36 +9,36 @@ Given("I am on the homepage", () => {
 
 When("I click on the Home header link", () => {
   //
-  homePage.exploreHomeLink();
+  homePageNavBar.exploreHomeLink();
 });
 
 When("I click on the Contact header link", () => {
   // Implement logic to click on the second header link
-  homePage.exploreContactLink();
+  homePageNavBar.exploreContactLink();
 });
 
 When("I click on the AboutUs header link", () => {
   // Implement logic to click on the third header link
-  homePage.exploreAboutUsLink();
+  homePageNavBar.exploreAboutUsLink();
 });
 
 When("I click on the Cart header link", () => {
   // Implement logic to click on the first header link
-  homePage.exploreCartLink();
+  homePageNavBar.exploreCartLink();
 });
 
 When("I click on the LoginIn header link", () => {
   // Implement logic to click on the second header link
-  homePage.exploreLoginLink();
+  homePageNavBar.exploreLoginLink();
 });
 
 When("I click on the SignUp header link", () => {
   // Implement logic to click on the third header link
-  homePage.exploreSignupLink();
+  homePageNavBar.exploreSignupLink();
 });
 
 Then("I should be redirected to the corresponding page", () => {
   // Implement logic to verify the redirection
-  homePage.visit();
+  homePageNavBar.visit();
   cy.url().should("include", "/index.html").wait(1000);
 });
