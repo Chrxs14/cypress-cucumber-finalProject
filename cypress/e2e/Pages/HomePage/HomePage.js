@@ -21,7 +21,6 @@ class HomePage {
       cy.wrap(item).should("have.class", "active"); // Assertion 1
 
       carouselButtons[1].click();
-
       cy.wait(1000);
 
       if (index === list.length - 1) {
@@ -30,7 +29,6 @@ class HomePage {
           index--;
           cy.wait(1000);
         }
-        cy.wait(1000);
       }
     });
   }
@@ -39,10 +37,15 @@ class HomePage {
     cy.get(".carousel").scrollIntoView();
   }
 
-  carouselIsVisible(carousel) {
-    return carousel.should("be.visible");
-  }
   //Carousel End
+
+  selectItem() {
+    cy.get(".card-title > .hrefch")
+      .wait(1000)
+      .first()
+      .should("be.visible")
+      .click();
+  }
 }
 
 const Home = new HomePage();

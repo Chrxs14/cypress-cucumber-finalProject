@@ -1,6 +1,6 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 
-const homePage = require("../../Pages/HomePage/HomePage.cy.js");
+const homePage = require("../../Pages/HomePage/HomePage");
 
 Given("I am on the homepage", () => {
   homePage.visit();

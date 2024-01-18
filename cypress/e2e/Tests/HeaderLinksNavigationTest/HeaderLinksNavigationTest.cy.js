@@ -1,7 +1,7 @@
 // headerNavigationSteps.js
 
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
-const homePageNavBar = require("../../Pages/HomePage/HomePage.NavBar");
+const homePageNavBar = require("../../Pages/HomePage/HomePageNavBar");
 
 Given("I am on the homepage", () => {
   cy.visit("/");
