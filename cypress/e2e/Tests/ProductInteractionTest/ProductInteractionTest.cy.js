@@ -15,7 +15,7 @@ When("the user adds a product to the cart", () => {
 
 Then("the product should be visible in the cart", () => {
   Cart.visit();
-  Cart.verifyCartItems();
+  Cart.verifyCartIsNotEmpty();
 });
 
 Given("the user has products in the cart", () => {
@@ -25,6 +25,8 @@ Given("the user has products in the cart", () => {
 });
 
 When("the user proceeds to buy the cart", () => {
+  Cart.visit();
+  Cart.verifyCartIsNotEmpty();
   Cart.OpenPlaceHolder();
   Cart.setPlaceHolderName();
   Cart.setPlaceHolderCountry();
@@ -36,9 +38,14 @@ When("the user proceeds to buy the cart", () => {
 });
 
 Then("the user should be directed to the checkout page", () => {
-
+  Cart.ValidatePurchase();
 });
 
-When("the user removes an item from the cart", () => {});
+When("the user removes an item from the cart", () => {
+  Cart.visit();
+  Cart.removeElement();
+});
 
-Then("the cart should not contain the removed item", () => {});
+Then("the cart should not contain the removed item", () => {
+  Cart.verifyCartIsEmpty();
+});

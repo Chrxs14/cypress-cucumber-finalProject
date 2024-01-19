@@ -1,3 +1,5 @@
+import data from "../../../fixtures/purchaseData.json";
+
 class CartPage {
   visit() {
     cy.visit("/cart.html");
@@ -12,49 +14,56 @@ class CartPage {
   }
 
   verifyCartIsEmpty() {
-    cy.get(".success").should("not.be.visible");
+    cy.get(".panel-title").should(($element) => {
+      const text = $element.text().trim();
+      expect(text).to.eq("");
+    });
   }
 
   OpenPlaceHolder() {
-    cy.get("btn-success").click();
+    cy.get(".btn-success").click();
   }
 
   setPlaceHolderName() {
-    const name = "Name";
-    cy.get("#name").type(name);
+    const name = data.name;
+    cy.get("#name").should("be.visible").type(name);
   }
 
   setPlaceHolderCountry() {
-    const country = "Country";
-    cy.get("#country").type(country);
+    const country = data.country;
+    cy.get("#country").should("be.visible").type(country);
   }
 
   setPlaceHolderCity() {
-    const city = "City";
-    cy.get("#city").type(city);
+    const city = data.city;
+    cy.get("#city").should("be.visible").type(city);
   }
 
   setPlaceHolderCreditCart() {
-    const creditCard = "Credit Card";
-    cy.get("#card").type(creditCard);
+    const creditCard = data.creditCard;
+    cy.get("#card").should("be.visible").type(creditCard);
   }
 
   setPlaceHolderMonth() {
-    const month = "Month";
-    cy.get("#month").type(month);
+    const month = data.month;
+    cy.get("#month").should("be.visible").type(month);
   }
 
   setPlaceHolderYear() {
-    const year = "Year";
-    cy.get("#year").type(year);
+    const year = data.year;
+    cy.get("#year").should("be.visible").type(year);
   }
 
   setData() {
-    cy.get("btn-primary").should("be.visible").click();
+    cy.contains(".btn-primary", "Purchase").should("be.visible").click();
   }
 
   ValidatePurchase() {
-    cy.get(".sweet-alert").contains("Thank you for your purchase!").click();
+    cy.get(".sweet-alert").contains("Thank you for your purchase!");
+  }
+
+  removeElement() {
+    cy.contains("a", "Delete").should("be.visible").click();
   }
 }
 

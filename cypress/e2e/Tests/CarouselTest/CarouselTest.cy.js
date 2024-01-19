@@ -11,8 +11,7 @@ When("I navigate to the featured items section", () => {
 });
 
 Then("the carousel should be visible", () => {
-  const carousel = homePage.getCarousel();
-  homePage.carouselIsVisible(carousel);
+  homePage.getCarousel();
 });
 
 Then(

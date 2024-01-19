@@ -6,7 +6,7 @@ class HomePage {
   //Carousel Start
 
   getCarousel() {
-    return cy.get(".carousel ").should("exist").and("be.visible");
+    return cy.get(".carousel ").should("be.visible");
   }
 
   getCarouselButtons() {
